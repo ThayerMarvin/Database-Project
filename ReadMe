@@ -1,3 +1,1 @@
-Our create routes in app.js and the handelbars pages are based on the CS340 starter code. We also used the CS340 starter code as inspiration for the other CUD routes, so they look similar.
-All SQL in the DDL.SQL and DML.SQL is written by us, but we used AI to generate the procedures in PLSQL.SQL, based on our querys already written.
-The styling in CSS is written by us. 
+This was a project for my databases class at Oregon State University. We created a business that used a database back end to handle inventory. We used Javascript html/css and SQL to create and run out website.

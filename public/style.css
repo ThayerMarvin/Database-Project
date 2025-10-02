@@ -1,0 +1,83 @@
+/* 1 # Citation For The Following Function:
+2 # Date:06/05/2025
+3 # Copied from
+4 # Originally copied from the starter code then rewritten as needed to style web application
+5 # SourceURL:https://canvas.oregonstate.edu/courses/1999601/pages/exploration-web-application-technology-2?module_item_id=25352948
+*/
+h1, h2 { margin-left: 16px;
+        color: #821b1b;        
+}
+
+table {
+    width: 90%; 
+    margin-left: 32px;
+    margin-right: 32px
+}
+
+
+th {
+    padding: 12px;
+    text-align: center;
+    background-color: #F3C623;
+}
+th:first-child {
+    border-top-left-radius: 12px;
+}
+
+th:last-child {
+    border-top-right-radius: 12px;
+}
+td {
+    padding: 12px;
+    text-align: center;
+    background-color: #FFB22C;
+    border-bottom: solid 2px #ff5722;
+    border-right: solid 2px #ff5722;
+}
+
+a {
+    color: #821b1b; 
+}
+
+a:visited {
+    color: #ff5722; 
+}
+
+a:hover {
+    color: #821b1b; 
+}
+
+a:active {
+    color: #d32f2f;
+}
+
+nav {
+    background-color: #F3C623;padding: 16px;
+    border-radius: 12px;
+    color: #821b1b;
+}
+
+.cuForm { margin-left: 32px;}
+input, select { margin-bottom: 4px;margin-right: 12px;}
+
+a {margin-left: 16px;}
+.homepageDescription {margin-left: 32px;}
+
+body {
+    background-color: #FEF3E2; 
+}
+
+button {
+    background-color: #F3C623; 
+    color: black; 
+    padding: 5px 10px;
+    border: solid 1px #ff5722; 
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Text size */
+    cursor: pointer;
+
+}
+button:hover {
+    background-color: #ffd333; 
+    transform: scale(1.10); 
+}

@@ -1,0 +1,101 @@
+{{! CREATE form }}
+<h2>Create a Sale</h2>
+<form class="cuForm" id="create_sales_form" method="POST" action="/manage-sales">
+    <!-- Customer Name (Dropdown, selects customerID) -->
+    <label for="create_customer_id">Customer Name: </label>
+    <select name="create_customer_id" id="create_customer_id" required>
+        {{#each customers}}
+        <option value="{{this.customerID}}">{{this.customerName}}</option>
+        {{/each}}
+    </select>
+
+    <!-- Sale Date -->
+    <label for="create_sale_date">Sale Date: </label>
+    <input type="date" name="create_sale_date" id="create_sale_date" required />
+
+    <!-- Transaction Type -->
+    <label for="create_transaction_type">Transaction Type: </label>
+    <select name="create_transaction_type" id="create_transaction_type" required>
+        <option value="Sale">Sale</option>
+        <option value="Trade">Trade</option>
+    </select>
+
+    <!-- Sale Amount -->
+    <label for="create_sale_amount">Sale Amount: </label>
+    <input type="number" name="create_sale_amount" id="create_sale_amount" step="0.01" min="0" required />
+
+    <!-- Product (Dropdown, selects productID) -->
+    <label for="create_product_id">Product: </label>
+    <select name="create_product_id" id="create_product_id" required>
+        {{#each products}}
+        <option value="{{this.productID}}" data-price="{{this.salesPrice}}">{{this.productName}}</option>
+        {{/each}}
+    </select>
+
+    <!-- Quantity -->
+    <label for="create_quantity">Quantity: </label>
+    <input type="number" name="create_quantity" id="create_quantity" min="1" step="1" value="1" required />
+
+    <!-- Price -->
+    <label for="create_price">Price: </label>
+    <input type="number" name="create_price" id="create_price" step="0.01" min="0" required />
+
+    <!-- Submit Button -->
+    <input type="submit" value="Create Sale" />
+</form>
+
+
+
+
+<h2>Update a Sale</h2>
+<form class="cuForm" id="update_sales_form" method="POST" action="/update-sales">
+    <!-- Sale ID -->
+    <label for="update_sale_id">Sale ID: </label>
+    <select name="update_sale_id" id="update_sale_id" required>
+        {{#each sales}}
+        <option value="{{this.saleID}}">{{this.saleID}}</option>
+        {{/each}}
+    </select>
+
+    <!-- Customer ID -->
+    <label for="update_customer_id">Customer Name: </label>
+    <select name="update_customer_id" id="update_customer_id">
+        {{#each customers}}
+        <option value="{{this.customerID}}">{{this.customerName}}</option>
+        {{/each}}
+    </select>
+
+    <!-- Sale Date -->
+    <label for="update_sale_date">Sale Date: </label>
+    <input type="date" name="update_sale_date" id="update_sale_date" />
+
+    <!-- Transaction Type -->
+    <label for="update_transaction_type">Transaction Type: </label>
+    <select name="update_transaction_type" id="update_transaction_type">
+        <option value="Sale">Sale</option>
+        <option value="Trade">Trade</option>
+    </select>
+
+    <!-- Sale Amount -->
+    <label for="update_sale_amount">Sale Amount: </label>
+    <input type="number" name="update_sale_amount" id="update_sale_amount" step="0.01" min="0" />
+
+    <!-- Product ID -->
+    <label for="update_product_id">Product: </label>
+    <select name="update_product_id" id="update_product_id">
+        {{#each products}}
+        <option value="{{this.productID}}">{{this.productName}}</option>
+        {{/each}}
+    </select>
+
+    <!-- Quantity -->
+    <label for="update_quantity">Quantity: </label>
+    <input type="number" name="update_quantity" id="update_quantity" step="1" min="1" />
+
+    <!-- Price -->
+    <label for="update_price">Price: </label>
+    <input type="number" name="update_price" id="update_price" step="0.01" min="0" />
+
+    <!-- Submit Button -->
+    <input type="submit" value="Update Sale" />
+</form>

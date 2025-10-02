@@ -1,0 +1,52 @@
+{{! 1 # Citation For The Following Function:
+2 # Date:06/05/2025
+3 # Based on the class starter code given
+4 # SourceURL:https://canvas.oregonstate.edu/courses/1999601/pages/exploration-web-application-technology-2?module_item_id=25352948
+*/}}
+<h1>Vendor Information</h1>
+
+<a href="/manage-vendors">Click here to manage vendors</a>
+
+{{! READ table }}
+<table>
+    <thead>
+        <tr>
+            <th>Company Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Postal Code</th>
+            <th>Accounts Payable</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {{#each vendors}}
+        <tr>
+            <td>{{this.companyName}}</td>
+            <td>{{this.email}}</td>
+            <td>{{this.phoneNumber}}</td>
+            <td>{{this.addressLine1}}</td>
+            <td>{{this.city}}</td>
+            <td>{{this.state}}</td>
+            <td>{{this.postalCode}}</td>
+            <td>{{this.accountsPayable}}</td>
+
+            {{! DELETE form }}
+            <form id='delete_vendor_form' method="POST" action="/vendors/delete">
+                <input type='hidden' name='delete_vendor_id' value='{{this.vendorID}}' />
+                <td>
+                    <button type='submit'>
+                        Delete
+                    </button>
+                </td>
+            </form>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+

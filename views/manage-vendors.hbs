@@ -1,0 +1,65 @@
+{{! CREATE form }}
+<h2>Create a Vendor</h2>
+<form class="cuForm" id="create_vendor_form" method="POST" action="/manage-vendors">
+    <label for="create_vendor_name">Vendor Name:</label>
+    <input type="text" name="create_vendor_name" id="create_vendor_name" required />
+
+    <label for="create_vendor_email">Email:</label>
+    <input type="email" name="create_vendor_email" id="create_vendor_email" required />
+
+    <label for="create_vendor_phone">Phone Number:</label>
+    <input type="tel" name="create_vendor_phone" id="create_vendor_phone" required />
+
+    <label for="create_vendor_address">Address ID:</label>
+    <select name="addressID" id="create_vendor_address" required>
+        <option value="" disabled selected>Select an Address ID</option>
+        {{#each addresses}}
+        <option value="{{this.addressID}}">
+            {{this.addressID}} - {{this.addressLine1}}
+        </option>
+        {{/each}}
+    </select>
+
+    <label for="create_vendor_ap">Accounts Payable:</label>
+    <input type="number" name="create_vendor_ap" id="create_vendor_ap" step="0.01" min="0" required />
+
+    <input type="submit" value="Create Vendor" />
+
+</form>
+
+
+{{! UPDATE form }}
+<h2>Update a Vendor</h2>
+<form class="cuForm" id="update_vendor_form" method="POST" action="/update-vendors">
+    
+    <label for="update_vendor_id">Vendor to Update:</label>
+    <select name="vendorID" id="update_vendor_id" required>
+        <option value="" disabled selected>Select a Vendor</option>
+        {{#each vendors}}
+        <option value="{{this.vendorID}}">
+            {{this.vendorID}} - {{this.companyName}}
+        </option>
+        {{/each}}
+    </select>
+
+    <label for="update_vendor_email">Email:</label>
+    <input type="email" name="update_vendor_email" id="update_vendor_email" />
+
+    <label for="update_vendor_phone">Phone Number:</label>
+    <input type="tel" name="update_vendor_phone" id="update_vendor_phone" />
+
+    <label for="update_vendor_addressID">Address ID:</label>
+    <select name="update_vendor_addressID" id="update_vendor_addressID" required>
+        <option value="" disabled selected>Select an Address ID</option>
+        {{#each addresses}}
+        <option value="{{this.addressID}}">
+            {{this.addressID}} - {{this.addressLine1}}
+        </option>
+        {{/each}}
+    </select>
+
+    <label for="update_vendor_ap">Accounts Payable:</label>
+    <input type="number" name="update_vendor_ap" id="update_vendor_ap" step="0.01" min="0" />
+
+    <input type="submit" value="Update Vendor" />
+</form>

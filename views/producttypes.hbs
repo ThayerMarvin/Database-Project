@@ -1,0 +1,28 @@
+{{! 1 # Citation For The Following Function:
+2 # Date:06/05/2025
+3 # Based on the class starter code given
+4 # SourceURL:https://canvas.oregonstate.edu/courses/1999601/pages/exploration-web-application-technology-2?module_item_id=25352948
+*/}}
+<h1>Product Types</h1>
+
+{{! READ table }}
+<table>
+    <thead>
+        {{! For the table header row, we print the DB attribute names }}
+        <tr>
+            <th>Product Type</th>
+            <th>Product Brand ID</th>
+            <th>Product Description</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {{! For each row, print the customerName, email, phoneNumber, and accountValue }}
+        {{#each producttypes}}
+        <tr>
+            <td>{{this.productType}}</td>
+            <td>{{this.productBrandID}}</td>
+            <td>{{this.productDescription}}</td>
+    </tbody>
+    {{/each}}
+</table>

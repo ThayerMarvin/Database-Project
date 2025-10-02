@@ -1,0 +1,43 @@
+<h2>Create a Customer</h2>
+<form class="cuForm" id="create_customer_form" method="POST" action="/manage-customers">
+    <label for="create_customer_name">Customer Name: </label>
+    <input type="text" name="create_customer_name" id="create_customer_name" required />
+
+    <label for="create_customer_email">Email: </label>
+    <input type="email" name="create_customer_email" id="create_customer_email" required />
+
+    <label for="create_customer_phone">Phone Number: </label>
+    <input type="tel" name="create_customer_phone" id="create_customer_phone" required />
+
+    <label for="create_customer_account_value">Account Value: </label>
+    <input type="number" name="create_customer_account_value" id="create_customer_account_value" step="0.01" min="0" required />
+
+    <input type="submit" value="Create Customer" />
+</form>
+
+
+
+{{! UPDATE form }}
+<h2>Update a Customer</h2>
+<form class="cuForm" id="update_customer_form" method="POST" action="/update-customer">
+    <label for="update_customer_id">Customer to Update:</label>
+    <select name="customerID" id="update_customer_id" required>
+        <option value="" disabled selected>Select a Customer</option>
+        {{#each customers}}
+        <option value="{{this.customerID}}">
+            {{this.customerName}}
+        </option>
+        {{/each}}
+    </select>
+
+    <label for="update_email">Email:</label>
+    <input type="email" name="email" id="update_email" />
+
+    <label for="update_phone">Phone Number:</label>
+    <input type="tel" name="phoneNumber" id="update_phone" />
+
+    <label for="update_av">Account Value:</label>
+    <input type="number" name="accountValue" id="update_av" step="0.01" min="0" />
+
+    <input type="submit" value="Update Customer" />
+</form>

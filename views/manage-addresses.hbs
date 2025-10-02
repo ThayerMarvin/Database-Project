@@ -1,0 +1,46 @@
+<h2>Create an Address</h2>
+<form class="cuForm" id="create_address_form" method="POST" action="/manage-addresses">
+    <label for="create_address_line_1">Address:</label>
+    <input type="text" name="create_address_line_1" id="create_address_line_1" required />
+
+    <label for="create_city">City:</label>
+    <input type="text" name="create_city" id="create_city" required />
+
+    <label for="create_state">State:</label>
+    <input type="text" name="create_state" id="create_state" required />
+
+    <label for="create_postal_code">Postal Code:</label>
+    <input type="text" name="create_postal_code" id="create_postal_code" required />
+
+    <input type="submit" value="Create Address" />
+</form>
+
+
+
+{{! UPDATE form }}
+<h2>Update an Address</h2>
+<form class="cuForm" id="update_address_form" method="POST" action="/update-addresses">
+    <label for="update_address_id">Address to Update:</label>
+    <select name="addressID" id="update_address_id" required>
+        <option value="" disabled selected>Select an Address</option>
+        {{#each addresses}}
+        <option value="{{this.addressID}}">
+            {{this.addressLine1}}, {{this.city}}, {{this.state}} {{this.postalCode}}
+        </option>
+        {{/each}}
+    </select>
+
+    <label for="update_address_line1">Address:</label>
+    <input type="text" name="addressLine1" id="update_address_line1" />
+
+    <label for="update_city">City:</label>
+    <input type="text" name="city" id="update_city" />
+
+    <label for="update_state">State:</label>
+    <input type="text" name="state" id="update_state" />
+
+    <label for="update_postal_code">Postal Code:</label>
+    <input type="text" name="postalCode" id="update_postal_code" />
+
+    <input type="submit" value="Update Address" />
+</form>

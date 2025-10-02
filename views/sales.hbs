@@ -1,0 +1,59 @@
+{{! 1 # Citation For The Following Function:
+2 # Date:06/05/2025
+3 # Based on the class starter code given
+4 # SourceURL:https://canvas.oregonstate.edu/courses/1999601/pages/exploration-web-application-technology-2?module_item_id=25352948
+*/}}
+
+<h1>Sales Information</h1>
+
+<a href='/manage-sales'>Click here to manage sales</a>
+
+{{! READ table }}
+<table>
+    <thead>
+        <tr>
+            <th>Sale ID</th>
+            <th>Customer ID</th>
+            <th>Sale Date</th>
+            <th>Transaction Type</th>
+            <th>Sale Amount</th>
+            <th>Customer Name</th>
+            <th>Email</th>
+            <th>Product ID</th>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    </thead>
+
+    <tbody>
+        {{! For each row, print the Sales and Customers details }}
+        {{#each sales}}
+        <tr>
+            <td>{{this.saleID}}</td>
+            <td>{{this.customerID}}</td>
+            <td>{{this.saleDate}}</td>
+            <td>{{this.transactionType}}</td>
+            <td>{{this.saleAmount}}</td>
+            <td>{{this.customerName}}</td>
+            <td>{{this.email}}</td>
+            <td>{{this.productID}}</td>
+            <td>{{this.productName}}</td>
+            <td>{{this.quantity}}</td>
+            <td>{{this.price}}</td>
+
+            {{! DELETE form }}
+            <form id='delete_sales_form' method="POST" action="/sales/delete">
+                <input type='hidden' name='delete_sales_id' value='{{this.saleID}}' />
+                <td>
+                    <button type='submit'>
+                        Delete
+                    </button>
+                </td>
+            </form>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

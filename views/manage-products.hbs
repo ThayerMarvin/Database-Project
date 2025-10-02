@@ -1,0 +1,81 @@
+{{! CREATE form }}
+<h2>Create a Product</h2>
+<form class="cuForm" id="create_product_form" method='POST' action='/manage-products'>
+    <label for="create_product_name">Product Name: </label>
+    <input type="text" name="create_product_name" id="create_product_name" required />
+
+    <label for="create_product_price">Price: </label>
+    <input type="number" name="create_product_price" id="create_product_price" step="0.01" min="0" required />
+
+    <label for="create_product_sales_price">Sales Price: </label>
+    <input type="number" name="create_product_sales_price" id="create_product_sales_price" step="0.01" min="0" />
+
+    <label for="create_product_type_id">Product Type ID: </label>
+    <select name="create_product_type_id" id="create_product_type_id" required>
+    <option value="" selected disabled>Select a Product Type</option>
+    {{#each producttypes}}
+        <option value="{{this.productTypeID}}">
+            {{this.productTypeID}} - {{this.productType}}
+        </option>
+    {{/each}}
+    </select>
+
+    <label for="create_vendor_id">Vendor: </label>
+    <select name="create_vendor_id" id="create_vendor_id" required>
+    <option value="" selected disabled>Select a Vendor</option>
+    {{#each vendors}}
+        <option value="{{this.vendorID}}">{{this.companyName}}</option>
+    {{/each}}
+    </select>
+
+
+    <input type="submit"  value="Create Product"/>
+
+
+</form>
+
+
+{{! UPDATE form }}
+<h2>Update a Product</h2>
+<form class='cuForm' id='update_product_form' method='POST' action='/update-products'>
+    <label for="update_product_id">Product to Update: </label>
+    <select name="update_product_id" id="update_product_id" required>
+        <option value="" disabled selected>Select a Product</option>
+        {{#each products}}
+        <option value="{{this.productID}}">
+            {{this.productID}} - {{this.productName}}
+        </option>
+        {{/each}}
+    </select>
+
+    <label for="update_product_name">New Product Name: </label>
+    <input type="text" name="update_product_name" id="update_product_name" />
+
+    <label for="update_product_price">New Price: </label>
+    <input type="number" name="update_product_price" id="update_product_price" step="0.01" min="0" />
+
+    <label for="update_product_sales_price">New Sales Price: </label>
+    <input type="number" name="update_product_sales_price" id="update_product_sales_price" step="0.01" min="0" />
+
+    <label for="update_product_type_id">Product Type ID: </label>
+    <select name="update_product_type_id" id="update_product_type_id" required>
+    <option value="" selected disabled>Select a Product Type</option>
+    {{#each producttypes}}
+        <option value="{{this.productTypeID}}">
+            {{this.productTypeID}} - {{this.productType}}
+        </option>
+    {{/each}}
+    </select>
+
+    <label for="update_vendor_id">Vendor ID: </label>
+    <select name="update_vendor_id" id="update_vendor_id" required>
+    <option value="" selected disabled>Select a Vendor</option>
+    {{#each vendors}}
+        <option value="{{this.vendorID}}">
+            {{this.vendorID}} - {{this.companyName}}
+        </option>
+    {{/each}}
+    </select>
+
+    <input type="submit" value="Update Product"/>
+</form>

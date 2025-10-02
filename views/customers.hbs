@@ -1,0 +1,44 @@
+{{! 1 # Citation For The Following Function:
+2 # Date:06/05/2025
+4 # Based on the class starter code given
+5 # SourceURL:https://canvas.oregonstate.edu/courses/1999601/pages/exploration-web-application-technology-2?module_item_id=25352948
+*/}}
+<h1>Customer Information</h1>
+
+<a href='/manage-customers'>Click here to manage customers</a>
+
+{{! READ table }}
+<table>
+    <thead>
+        {{! For the table header row, we print the DB attribute names }}
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Account Value</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {{! For each row, print the customerName, email, phoneNumber, and accountValue }}
+        {{#each customers}}
+        <tr>
+            <td>{{this.customerName}}</td>
+            <td>{{this.email}}</td>
+            <td>{{this.phoneNumber}}</td>
+            <td>{{this.accountValue}}</td>
+            {{! DELETE form }}
+            <form id='delete_customer_form' method="POST" action="/customers/delete">
+                <input type='hidden' name='delete_customer_id' value='{{this.customerID}}' />
+                <td>
+                    <button type='submit'>
+                        Delete
+                    </button>
+                </td>
+            </form>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+

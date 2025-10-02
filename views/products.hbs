@@ -1,0 +1,53 @@
+{{! 1 # Citation For The Following Function:
+2 # Date:06/05/2025
+3 # Based on the class starter code given
+4 # SourceURL:https://canvas.oregonstate.edu/courses/1999601/pages/exploration-web-application-technology-2?module_item_id=25352948
+*/}}
+<h1>Product Information</h1>
+
+<a href='/manage-products'>Click here to manage products</a>
+
+
+{{! READ table }}
+<table>
+    <thead>
+        <tr>
+            <th>Product ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Sale Price</th>
+            <th>Product Type ID</th>
+            <th>Product Brand</th>
+            <th>Vendor Id</th>
+            <th>Vendor Name</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {{#each products}}
+        <tr>
+            <td>{{this.productID}}</td>
+            <td>{{this.productName}}</td>
+            <td>{{this.price}}</td>
+            <td>{{this.productSalesPrice}}</td>
+            <td>{{this.productTypeID}}</td>
+            <td>{{this.productBrandName}}</td>
+            <td>{{this.vendorID}}</td>
+            <td>{{this.vendorName}}</td>
+
+
+            {{! DELETE form }}
+            <form id='delete_product_form' method = POST action = '/products/delete'>
+                <input type='hidden' name='delete_product_id' value='{{this.productID}}' />
+                <input type='hidden' name='delete_product_name' value='{{this.productName}}' />
+                <td>
+                    <button type='submit'>
+                        Delete
+                    </button>
+                </td>
+            </form>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
